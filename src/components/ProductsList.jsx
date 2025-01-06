@@ -31,7 +31,7 @@ function ProductsList() {
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grow grid-cols-[repeat(auto-fit,minmax(350px,1fr))] gap-4">
         {productsList.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
