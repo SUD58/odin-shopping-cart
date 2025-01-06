@@ -47,7 +47,7 @@ export function AddToCartButton({ product }) {
   return (
     <>
       {isInCart && (
-        <div className="flex w-2/5 items-center justify-between rounded-full border-2 border-green-500 px-2 py-1">
+        <div className="flex w-2/5 items-center justify-between rounded-full border-2 border-green-500 p-1">
           <button
             onClick={handleDecrement}
             className="fa-solid fa-minus flex aspect-square items-center justify-center rounded-full border-2 border-green-500 p-2 text-black hover:bg-green-500 hover:text-white"

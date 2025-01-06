@@ -5,7 +5,7 @@ export default function ProductCard({ product }) {
   return (
     <div className="flex flex-col items-center justify-center gap-2 border-2 p-4">
       <img src={product.images[0]} alt="" className="h-24" />
-      <h1 className="w-3/5 text-pretty text-center text-lg">{product.title}</h1>
+      <h1 className="text-lg">{product.title}</h1>
       <p className="font-bold">${product.price}</p>
       <AddToCartButton product={product} />
     </div>
