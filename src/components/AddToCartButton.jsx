@@ -6,6 +6,8 @@ export function AddToCartButton({ product }) {
   const [cart, setCart] = useContext(CartContext);
 
   const isInCart = cart.find((item) => item.id === product.id);
+  const totalInStock = product.stock;
+  const isOutOfStock = totalInStock === 0;
   const cartQuantity =
     cart.find((item) => item.id === product.id)?.quantity || 0;
 
@@ -59,15 +61,17 @@ export function AddToCartButton({ product }) {
           ></button>
           <span className="font-bold">{cartQuantity}</span>
           <button
+            disabled={cartQuantity >= totalInStock}
             onClick={handleIncrement}
-            className="fa-solid fa-plus flex aspect-square items-center justify-center rounded-full border-2 border-green-500 p-2 text-black hover:bg-green-500 hover:text-white"
+            className="fa-solid fa-plus flex aspect-square items-center justify-center rounded-full border-2 border-green-500 p-2 text-black hover:bg-green-500 hover:text-white disabled:cursor-not-allowed disabled:border-zinc-400 disabled:bg-zinc-400 disabled:hover:text-black"
           ></button>
         </div>
       )}
       {!isInCart && (
         <button
+          disabled={isOutOfStock}
           onClick={handleAddToCart}
-          className="flex w-2/5 items-center justify-center rounded-full bg-green-500 px-2 py-3 font-bold text-white"
+          className="flex w-2/5 items-center justify-center rounded-full bg-green-500 px-2 py-3 font-bold text-white hover:bg-green-700 disabled:bg-zinc-400 disabled:hover:bg-zinc-400"
         >
           Add to Cart
         </button>
@@ -82,5 +86,6 @@ AddToCartButton.propTypes = {
     price: PropTypes.number.isRequired,
     id: PropTypes.number.isRequired,
     thumbnail: PropTypes.string.isRequired,
+    stock: PropTypes.number.isRequired,
   }).isRequired,
 };
