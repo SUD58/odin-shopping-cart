@@ -9,6 +9,7 @@ export default function Cart() {
   const [cart, setCart] = useContext(CartContext);
   const isCartEmpty = cart.length === 0;
 
+  const cartRef = useRef(null);
   const cartListRef = useRef(null);
   const [cartListHeight, setCartListHeight] = useState(null);
 
@@ -21,9 +22,29 @@ export default function Cart() {
     }
   }, [cart]);
 
+  useLayoutEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        cartRef.current &&
+        !cartRef.current.contains(event.target) &&
+        event.target.tagName !== "BUTTON" &&
+        isCartVisible
+      ) {
+        setIsCartVisible(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isCartVisible, setIsCartVisible]);
+
   return (
     <>
       <div
+        ref={cartRef}
         className={`fixed right-0 top-0 flex w-80 flex-col gap-4 rounded-bl-2xl bg-zinc-50 p-4 shadow-lg transition-transform duration-300 ${
           isCartVisible ? "translate-x-0" : "translate-x-full"
         }`}

@@ -53,8 +53,8 @@ export default function ProductPage() {
     <>
       <CartVisibilityProvider>
         <CartProvider>
-          <Navbar></Navbar>
           <Cart />
+          <Navbar></Navbar>
 
           {loading && <p>Loading...</p>}
           {error && <p>Error: {error.message}</p>}

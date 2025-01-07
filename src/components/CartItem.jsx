@@ -11,6 +11,7 @@ export function CartItem({ item }) {
 
   return (
     <li className="flex items-center justify-between rounded-lg bg-zinc-200 p-4">
+      <img src={item.thumbnail} alt="" className="w-12" />
       <div className="flex flex-col gap-2">
         <p className="max-w-32 text-pretty">{item.title}</p>
         <p className="font-bold">
@@ -30,5 +31,6 @@ CartItem.propTypes = {
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     quantity: PropTypes.number.isRequired,
+    thumbnail: PropTypes.string.isRequired,
   }),
 };

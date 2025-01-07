@@ -9,19 +9,22 @@ export function AddToCartButton({ product }) {
   const cartQuantity =
     cart.find((item) => item.id === product.id)?.quantity || 0;
 
-  function handleAddToCart() {
+  function handleAddToCart(event) {
+    event.preventDefault();
     setCart((prevCart) => [
       ...prevCart,
       {
         id: product.id,
         title: product.title,
         price: product.price,
+        thumbnail: product.thumbnail,
         quantity: 1,
       },
     ]);
   }
 
-  function handleIncrement() {
+  function handleIncrement(event) {
+    event.preventDefault();
     setCart((prevCart) =>
       prevCart.map((item) =>
         item.id === product.id
@@ -31,7 +34,8 @@ export function AddToCartButton({ product }) {
     );
   }
 
-  function handleDecrement() {
+  function handleDecrement(event) {
+    event.preventDefault();
     if (cartQuantity === 1) {
       setCart((prevCart) => prevCart.filter((item) => item.id !== product.id));
     } else {
@@ -77,5 +81,6 @@ AddToCartButton.propTypes = {
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     id: PropTypes.number.isRequired,
+    thumbnail: PropTypes.string.isRequired,
   }).isRequired,
 };
