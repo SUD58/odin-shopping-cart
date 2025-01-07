@@ -10,7 +10,9 @@ export function Navbar() {
 
   return (
     <nav className="flex justify-between bg-black p-4 text-white">
-      <h1 className="text-2xl">Logo</h1>
+      <NavLink to="/" className="text-2xl">
+        Logo
+      </NavLink>
       <ul className="flex gap-4">
         <NavLink
           className={({ isActive }) =>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
+import { Link } from "react-router-dom";
 
 function ProductsList() {
   const [productsList, setProductsList] = useState([]);
@@ -33,7 +34,9 @@ function ProductsList() {
 
       <div className="grid grow grid-cols-[repeat(auto-fit,minmax(350px,1fr))] gap-4">
         {productsList.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <Link key={product.id} to={`/products/${product.id}`}>
+            <ProductCard key={product.id} product={product} />
+          </Link>
         ))}
       </div>
     </>
