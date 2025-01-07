@@ -10,12 +10,12 @@ export default function ProductsListPage() {
     <CartVisibilityProvider>
       <CartProvider>
         <Navbar />
-        <div className="relative">
+        <div className="relative min-h-screen">
+          <Cart />
           <div className="flex flex-col gap-2 lg:flex-row">
             <Sidebar />
             <ProductsList />
           </div>
-          <Cart />
         </div>
       </CartProvider>
     </CartVisibilityProvider>

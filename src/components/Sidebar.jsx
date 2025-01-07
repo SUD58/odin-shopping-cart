@@ -26,7 +26,7 @@ export default function Sidebar() {
   }, []);
 
   return (
-    <div className="top-0 max-h-screen w-full space-y-2 bg-zinc-50 p-4 lg:sticky lg:w-64 lg:shadow-lg">
+    <div className="top-0 h-screen w-full space-y-2 bg-zinc-50 p-4 lg:sticky lg:w-64 lg:shadow-lg">
       <h2 className="text-xl font-bold">Filters</h2>
       <details className="rounded-xl bg-zinc-100 open:bg-zinc-200">
         <summary className="cursor-pointer rounded-xl p-4 text-lg hover:bg-zinc-200">

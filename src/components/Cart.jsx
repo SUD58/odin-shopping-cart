@@ -1,3 +1,4 @@
+import { CartItem } from "./CartItem";
 import CartContext from "../contexts/CartContext";
 import { useContext } from "react";
 import CartVisibilityContext from "../contexts/CartVisibilityContext";
@@ -11,7 +12,7 @@ export default function Cart() {
   return (
     <>
       <div
-        className={`absolute right-0 top-0 h-screen w-80 bg-zinc-50 p-4 shadow-lg transition-transform duration-300 ${
+        className={`fixed right-0 top-0 flex h-screen w-80 flex-col gap-4 bg-zinc-50 p-4 shadow-lg transition-transform duration-300 ${
           isCartVisible ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -27,19 +28,24 @@ export default function Cart() {
         {isCartEmpty ? (
           <h1>Cart is empty!</h1>
         ) : (
-          <ul className="p-4">
+          <ul className="flex flex-col gap-3 p-4">
             {cart.map((item) => (
-              <li
-                key={item.id}
-                className="flex items-center justify-between gap-2"
-              >
-                <p>{item.title}</p>
-                <p>${item.price}</p>
-                <p>Quantity: {item.quantity}</p>
-              </li>
+              <CartItem key={item.id} item={item} />
             ))}
           </ul>
         )}
+        <div className="flex justify-between">
+          <h3 className="font-bold">Total</h3>
+          <p className="font-bold">
+            $
+            {cart
+              .reduce((total, item) => total + item.price * item.quantity, 0)
+              .toFixed(2)}
+          </p>
+        </div>
+        <button className="self-stretch rounded-full bg-green-500 p-4 font-bold text-white">
+          Place Order
+        </button>
       </div>
     </>
   );
