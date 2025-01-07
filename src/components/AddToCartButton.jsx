@@ -16,7 +16,6 @@ export function AddToCartButton({ product }) {
         id: product.id,
         title: product.title,
         price: product.price,
-        image: product.images[0],
         quantity: 1,
       },
     ]);
@@ -75,7 +74,6 @@ export function AddToCartButton({ product }) {
 
 AddToCartButton.propTypes = {
   product: PropTypes.shape({
-    images: PropTypes.arrayOf(PropTypes.string).isRequired,
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     id: PropTypes.number.isRequired,
