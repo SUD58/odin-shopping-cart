@@ -28,6 +28,7 @@ export default function Cart() {
         cartRef.current &&
         !cartRef.current.contains(event.target) &&
         event.target.tagName !== "BUTTON" &&
+        event.target.tagName !== "INPUT" &&
         isCartVisible
       ) {
         setIsCartVisible(false);
@@ -64,7 +65,7 @@ export default function Cart() {
           <>
             <button
               onClick={() => setCart([])}
-              className="group flex items-center self-end rounded-lg bg-red-400 p-2 text-white"
+              className="group flex items-center self-end rounded-lg bg-red-400 p-2 text-white transition-colors duration-300 hover:bg-red-600"
             >
               <i className="fas fa-trash-alt transition-[padding] duration-300 group-hover:pr-2"></i>
               <span className="max-w-0 overflow-hidden whitespace-nowrap transition-[max-width] duration-300 group-hover:max-w-24">
@@ -95,7 +96,7 @@ export default function Cart() {
                   .toFixed(2)}
               </p>
             </div>
-            <button className="self-stretch rounded-full bg-green-500 p-4 font-bold text-white">
+            <button className="self-stretch rounded-full bg-green-500 p-4 font-bold text-white hover:bg-green-700">
               Place Order
             </button>
           </>
