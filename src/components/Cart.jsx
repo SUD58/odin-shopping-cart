@@ -75,7 +75,7 @@ export default function Cart() {
 
             <ul
               ref={cartListRef}
-              className="flex flex-col gap-3 overflow-y-scroll p-4"
+              className="no-scrollbar flex flex-col gap-3 overflow-y-scroll"
               style={{
                 maxHeight: cartListHeight,
               }}
@@ -84,6 +84,7 @@ export default function Cart() {
                 <CartItem key={item.id} product={item} />
               ))}
             </ul>
+
             <div className="flex justify-between">
               <h3 className="font-bold">Total</h3>
               <p className="font-bold">
