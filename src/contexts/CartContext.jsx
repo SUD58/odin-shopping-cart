@@ -10,8 +10,13 @@ export function CartProvider({ children }) {
   });
 
   useEffect(() => {
-    if (cart.length > 0) {
-      localStorage.setItem("Odin Cart Items", JSON.stringify(cart));
+    // Filter out invalid cart items before saving to localStorage
+    const validCart = cart.filter(
+      (item) => item.quantity && !isNaN(item.quantity),
+    );
+
+    if (validCart.length > 0) {
+      localStorage.setItem("Odin Cart Items", JSON.stringify(validCart));
     } else {
       localStorage.removeItem("Odin Cart Items");
     }

@@ -80,7 +80,7 @@ export default function Cart() {
               }}
             >
               {cart.map((item) => (
-                <CartItem key={item.id} item={item} />
+                <CartItem key={item.id} product={item} />
               ))}
             </ul>
             <div className="flex justify-between">

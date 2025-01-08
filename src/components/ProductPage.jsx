@@ -109,7 +109,9 @@ export default function ProductPage() {
             <div className="col-span-2 flex flex-col justify-between self-start rounded-2xl bg-zinc-100 p-6">
               <h3>${product.price}</h3>
               {product.stock > 0 ? <p>In stock!</p> : <p>Out of stock</p>}
-              <AddToCartButton product={product} />
+              <div className="self-start">
+                <AddToCartButton product={product} />
+              </div>
             </div>
           </section>
 
