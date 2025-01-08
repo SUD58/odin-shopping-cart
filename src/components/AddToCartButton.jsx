@@ -21,6 +21,7 @@ export function AddToCartButton({ product }) {
         title: product.title,
         price: product.price,
         thumbnail: product.thumbnail,
+        stock: product.stock,
         quantity: 1,
       },
     ]);
