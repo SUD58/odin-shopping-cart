@@ -97,6 +97,7 @@ export default function ProductPage() {
                 <p>No images available</p>
               )}
             </div>
+
             <div className="col-span-7 space-y-4">
               <div className="space-y-1">
                 <h1 className="text-2xl font-bold">{product.title}</h1>
@@ -106,9 +107,12 @@ export default function ProductPage() {
               </div>
               <p className="max-w-[60ch] text-pretty">{product.description}</p>
             </div>
-            <div className="col-span-2 flex flex-col justify-between self-start rounded-2xl bg-zinc-100 p-6">
-              <h3>${product.price}</h3>
-              {product.stock > 0 ? <p>In stock!</p> : <p>Out of stock</p>}
+
+            <div className="col-span-2 flex justify-between self-start rounded-2xl bg-zinc-100 p-6">
+              <div>
+                <h3>${product.price}</h3>
+                {product.stock > 0 ? <p>In stock!</p> : <p>Out of stock</p>}
+              </div>
               <div className="self-start">
                 <AddToCartButton product={product} />
               </div>

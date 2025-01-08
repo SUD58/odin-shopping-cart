@@ -30,7 +30,7 @@ export function ItemQuantityInput({ product }) {
     const quantity = parseInt(input, 10);
 
     // Prevent invalid or negative quantities
-    if (isNaN(quantity) || quantity < 0) {
+    if (isNaN(quantity) || quantity < 1) {
       return;
     }
 

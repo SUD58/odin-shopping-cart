@@ -59,7 +59,7 @@ export function AddToCartButton({ product }) {
         <button
           disabled={isOutOfStock}
           onClick={handleAddToCart}
-          className="min-w-2/5 flex items-center justify-center rounded-full bg-green-500 px-2 py-3 font-bold text-white hover:bg-green-700 active:bg-green-900 disabled:bg-zinc-400 disabled:hover:bg-zinc-400"
+          className="min-w-2/5 flex items-center justify-center rounded-full bg-green-500 px-3 py-3 font-bold text-white hover:bg-green-700 active:bg-green-900 disabled:bg-zinc-400 disabled:hover:bg-zinc-400"
         >
           Add to Cart
         </button>
