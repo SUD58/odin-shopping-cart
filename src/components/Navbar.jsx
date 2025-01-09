@@ -36,11 +36,16 @@ export function Navbar() {
         </NavLink>
         <button
           onClick={() => setIsCartVisible((prev) => !prev)}
-          className="flex items-center justify-center rounded-md px-4 hover:bg-zinc-700"
+          className="relative flex items-center justify-center rounded-md px-4 hover:bg-zinc-700"
         >
           <i
-            className={`${isCartEmpty ? "text-white" : "text-green-500"} fa-solid fa-shopping-cart`}
+            className={`${isCartEmpty ? "text-white" : "text-green-500"} fa-solid fa-shopping-cart fa-lg`}
           ></i>
+          {!isCartEmpty ? (
+            <p className="absolute right-0 top-0 flex aspect-square items-center justify-center rounded-full bg-green-500 p-0.5 px-2 text-xs">
+              {cart.length}
+            </p>
+          ) : null}
         </button>
       </ul>
     </nav>

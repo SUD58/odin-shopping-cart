@@ -11,6 +11,7 @@ function App() {
         <div className="relative">
           <Cart />
         </div>
+        <h2>You&apos;re on the home page!</h2>
       </CartProvider>
     </CartVisibilityProvider>
   );

@@ -63,15 +63,22 @@ export default function Cart() {
           <h1>Cart is empty!</h1>
         ) : (
           <>
-            <button
-              onClick={() => setCart([])}
-              className="group flex items-center self-end rounded-lg bg-red-400 p-2 text-white transition-colors duration-300 hover:bg-red-600"
-            >
-              <i className="fas fa-trash-alt transition-[padding] duration-300 group-hover:pr-2"></i>
-              <span className="max-w-0 overflow-hidden whitespace-nowrap transition-[max-width] duration-300 group-hover:max-w-24">
-                Empty Cart
-              </span>
-            </button>
+            <div className="flex items-center justify-between">
+              {cart.length === 1 ? (
+                <p className="font-bold">{cart.length} item in cart!</p>
+              ) : (
+                <p className="font-bold">{cart.length} items in cart!</p>
+              )}
+              <button
+                onClick={() => setCart([])}
+                className="group flex items-center self-end rounded-lg bg-red-400 p-2 text-white transition-colors duration-300 hover:bg-red-600"
+              >
+                <i className="fas fa-trash-alt transition-[padding] duration-300 group-hover:pr-2"></i>
+                <span className="max-w-0 overflow-hidden whitespace-nowrap transition-[max-width] duration-300 group-hover:max-w-24">
+                  Empty Cart
+                </span>
+              </button>
+            </div>
 
             <ul
               ref={cartListRef}

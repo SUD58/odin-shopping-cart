@@ -62,7 +62,7 @@ export function ItemQuantityInput({ product }) {
       onChange={handleQuantityInput}
       onBlur={handleQuantityBlur}
       value={cartQuantity || 0}
-      className="rounded-full text-center"
+      className="rounded-full bg-inherit text-center"
     />
   );
 }
