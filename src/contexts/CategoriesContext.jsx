@@ -9,20 +9,10 @@ export function CategoriesProvider({ children }) {
   useEffect(() => {
     fetch(`https://dummyjson.com/products/categories`)
       .then((response) => {
-        if (response.status >= 400) {
-          throw new Error("server error");
-        }
         return response.json();
       })
       .then((data) => {
         setCategories(data);
-      })
-      .catch((error) => {
-        setError(error);
-        console.error(error);
-      })
-      .finally(() => {
-        setLoading(false);
       });
   }, []);
 

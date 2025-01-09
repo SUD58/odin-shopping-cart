@@ -4,7 +4,6 @@ import ProductsList from "./ProductsList";
 import Sidebar from "./Sidebar";
 import { CartVisibilityProvider } from "../contexts/CartVisibilityContext";
 import Cart from "./Cart";
-import { SelectedCategoryProvider } from "../contexts/SelectedCategoryContext";
 import { CategoriesProvider } from "../contexts/CategoriesContext";
 
 export default function ProductsListPage() {
@@ -15,12 +14,10 @@ export default function ProductsListPage() {
         <div className="relative">
           <Cart />
           <CategoriesProvider>
-            <SelectedCategoryProvider>
-              <div className="grid h-full gap-2 lg:grid-cols-[auto_1fr]">
-                <Sidebar />
-                <ProductsList />
-              </div>
-            </SelectedCategoryProvider>
+            <div className="grid h-full gap-2 lg:grid-cols-[auto_1fr]">
+              <Sidebar />
+              <ProductsList />
+            </div>
           </CategoriesProvider>
         </div>
       </CartProvider>

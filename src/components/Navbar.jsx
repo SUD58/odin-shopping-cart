@@ -9,7 +9,7 @@ export function Navbar() {
   const isCartEmpty = cart.length === 0;
 
   return (
-    <nav className="flex justify-between bg-black p-4 text-white">
+    <nav className="flex justify-between self-start bg-black p-4 text-white">
       <NavLink to="/" className="text-2xl">
         Logo
       </NavLink>

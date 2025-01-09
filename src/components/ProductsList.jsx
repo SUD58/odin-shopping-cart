@@ -12,6 +12,7 @@ function ProductsList() {
 
   useEffect(() => {
     setLoading(true); // Ensure loading starts before any fetch
+
     const fetchUrl = selectedCategory
       ? `https://dummyjson.com/products/category/${selectedCategory}`
       : `https://dummyjson.com/products`;

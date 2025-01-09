@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import SelectedCategoryContext from "../contexts/SelectedCategoryContext";
 import CategoriesContext from "../contexts/CategoriesContext";
 
@@ -9,9 +9,9 @@ export default function Sidebar() {
   );
 
   function handleCategorySelection(category) {
-    category.slug === selectedCategory
-      ? setSelectedCategory("")
-      : setSelectedCategory(category.slug);
+    setSelectedCategory((prev) =>
+      prev === category.slug ? "" : category.slug,
+    );
   }
 
   return (
