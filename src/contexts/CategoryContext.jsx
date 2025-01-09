@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 const CategoryContext = createContext();
 
 export function CategoryProvider({ children }) {
-  const [category, setCategory] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   return (
-    <CategoryContext.Provider value={[category, setCategory]}>
+    <CategoryContext.Provider value={[selectedCategory, setSelectedCategory]}>
       {children}
     </CategoryContext.Provider>
   );

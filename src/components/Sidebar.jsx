@@ -5,7 +5,7 @@ export default function Sidebar() {
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [, setCategory] = useContext(CategoryContext);
+  const [selectedCategory, setSelectedCategory] = useContext(CategoryContext);
 
   useEffect(() => {
     fetch(`https://dummyjson.com/products/categories`)
@@ -27,6 +27,12 @@ export default function Sidebar() {
       });
   }, []);
 
+  function handleCategorySelection(category) {
+    category.slug === selectedCategory
+      ? setSelectedCategory("")
+      : setSelectedCategory(category.slug);
+  }
+
   return (
     <div className="top-0 w-full space-y-2 overflow-y-scroll bg-zinc-100 p-4 lg:sticky lg:h-screen lg:w-64 lg:shadow-2xl">
       <details>
@@ -35,15 +41,22 @@ export default function Sidebar() {
           <summary className="cursor-pointer rounded-xl p-4 text-lg hover:bg-zinc-200">
             Categories
           </summary>
-          <ul className="h-32 overflow-y-scroll px-2 lg:h-auto">
+          <ul className="h-32 space-y-2 overflow-y-scroll px-2 lg:h-auto">
             {loading && <p>Loading...</p>}
             {error && <p>Error: {error.message}</p>}
             {categories.map((category) => (
               <li
-                onClick={() => setCategory(category.slug)}
-                key={category.name}
-                className="cursor-pointer rounded-xl p-2 hover:bg-zinc-400"
+                onClick={() => handleCategorySelection(category)}
+                key={category.slug}
+                className={`flex cursor-pointer items-center gap-2 rounded-xl px-2 py-1 ${
+                  selectedCategory === category.slug
+                    ? "bg-green-500 text-white hover:bg-green-700"
+                    : "hover:bg-zinc-300"
+                }`}
               >
+                {selectedCategory === category.slug && (
+                  <i className="fas fas fa-check"></i>
+                )}
                 {category.name}
               </li>
             ))}
