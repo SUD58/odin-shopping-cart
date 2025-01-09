@@ -40,6 +40,13 @@ function ProductsList() {
       });
   }, [selectedCategory]);
 
+  function kebabToTitle(kebabStr) {
+    return kebabStr
+      .split("-") // Split the string at the hyphen
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
+      .join(" "); // Join the words back with a space
+  }
+
   if (loading) {
     return (
       <p className="flex items-center justify-center text-3xl font-bold">
@@ -53,15 +60,25 @@ function ProductsList() {
   }
 
   return (
-    <>
-      <div className="grid grow grid-cols-[repeat(auto-fit,minmax(350px,1fr))] gap-4 self-start p-4">
-        {productsList.map((product) => (
-          <Link key={product.id} to={`/products/${product.id}`}>
-            <ProductCard key={product.id} product={product} />
-          </Link>
-        ))}
-      </div>
-    </>
+    <div className="p-6">
+      <h1 className="mb-4 text-3xl font-bold">
+        {selectedCategory
+          ? `${kebabToTitle(selectedCategory)} Products`
+          : "All Products"}
+      </h1>
+      {productsList.length === 0 ? (
+        <p>No products found in this category.</p>
+      ) : (
+        <div className="grid grow grid-cols-[repeat(auto-fit,minmax(350px,1fr))] gap-4 self-start">
+          {/* Mapping over products and rendering ProductCard */}
+          {productsList.map((product) => (
+            <Link key={product.id} to={`/products/${product.id}`}>
+              <ProductCard key={product.id} product={product} />
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
   );
 }
 
