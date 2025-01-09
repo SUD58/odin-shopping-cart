@@ -1,14 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import { Link } from "react-router-dom";
-import CategoryContext from "../contexts/CategoryContext";
+import SelectedCategoryContext from "../contexts/SelectedCategoryContext";
 
 function ProductsList() {
   const [productsList, setProductsList] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const [selectedCategory] = useContext(CategoryContext);
+  const [selectedCategory] = useContext(SelectedCategoryContext);
 
   useEffect(() => {
     setLoading(true); // Ensure loading starts before any fetch

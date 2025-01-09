@@ -1,31 +1,12 @@
 import { useContext, useEffect, useState } from "react";
-import CategoryContext from "../contexts/CategoryContext";
+import SelectedCategoryContext from "../contexts/SelectedCategoryContext";
+import CategoriesContext from "../contexts/CategoriesContext";
 
 export default function Sidebar() {
-  const [categories, setCategories] = useState([]);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [selectedCategory, setSelectedCategory] = useContext(CategoryContext);
-
-  useEffect(() => {
-    fetch(`https://dummyjson.com/products/categories`)
-      .then((response) => {
-        if (response.status >= 400) {
-          throw new Error("server error");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setCategories(data);
-      })
-      .catch((error) => {
-        setError(error);
-        console.error(error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, []);
+  const [categories] = useContext(CategoriesContext);
+  const [selectedCategory, setSelectedCategory] = useContext(
+    SelectedCategoryContext,
+  );
 
   function handleCategorySelection(category) {
     category.slug === selectedCategory
@@ -42,8 +23,6 @@ export default function Sidebar() {
             Categories
           </summary>
           <ul className="h-32 space-y-2 overflow-y-scroll px-2 lg:h-auto">
-            {loading && <p>Loading...</p>}
-            {error && <p>Error: {error.message}</p>}
             {categories.map((category) => (
               <li
                 onClick={() => handleCategorySelection(category)}
