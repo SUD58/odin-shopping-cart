@@ -6,11 +6,13 @@ import { CartVisibilityProvider } from "../contexts/CartVisibilityContext";
 import Cart from "./Cart";
 import { CategoriesProvider } from "../contexts/CategoriesContext";
 import { Footer } from "./Footer";
+import ScrollToTop from "./ScrollToTop";
 
 export default function ProductsListPage() {
   return (
     <CartVisibilityProvider>
       <CartProvider>
+        <ScrollToTop />
         <Navbar />
         <div className="relative">
           <Cart />

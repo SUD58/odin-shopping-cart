@@ -4,6 +4,7 @@ import { CartProvider } from "./contexts/CartContext";
 import { CartVisibilityProvider } from "./contexts/CartVisibilityContext";
 import { HomePage } from "./components/HomePage";
 import { CategoriesProvider } from "./contexts/CategoriesContext";
+
 function App() {
   return (
     <CategoriesProvider>

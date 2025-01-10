@@ -19,7 +19,7 @@ export function HomePage() {
 
   return (
     <div className="z-10 snap-y snap-mandatory snap-end scroll-smooth">
-      <section className="flex h-screen flex-col justify-center gap-8 bg-[url('/src/assets/pexels-olly-974911.jpg')] bg-cover p-8 text-black lg:p-32">
+      <section className="flex h-screen flex-col justify-center gap-8 bg-[linear-gradient(to_left,rgba(0,0,0,0),rgba(0,0,0,0.5)),url('/src/assets/pexels-olly-974911.jpg')] bg-cover p-8 text-white lg:p-32">
         <div className="space-y-2">
           <h1 className="text-4xl font-bold">Shop Smarter, Live Easier!</h1>
           <h2 className="text-balance text-xl lg:w-[40ch]">
@@ -29,7 +29,7 @@ export function HomePage() {
         </div>
         <Link
           to={"/products"}
-          className="self-start bg-green-500 p-4 font-bold text-white transition-colors hover:bg-green-700"
+          className="self-start bg-green-500 p-4 font-bold transition-colors hover:bg-green-700"
         >
           Shop Now
         </Link>
