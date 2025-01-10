@@ -98,6 +98,22 @@ export function Footer() {
 
       <div className="mt-8 text-center text-gray-400">
         <p>&copy; 2025 ShopEase. All Rights Reserved.</p>
+        Created by{" "}
+        <a
+          href="https://github.com/SUD58/"
+          className="text-blue-500 underline visited:text-purple-500 hover:no-underline"
+          target="_blank"
+        >
+          Suhrud Shringarputale
+        </a>{" "}
+        as part of{" "}
+        <a
+          href="https://theodinproject.com"
+          className="text-blue-500 underline visited:text-purple-500 hover:no-underline"
+          target="_blank"
+        >
+          The Odin Project
+        </a>
       </div>
     </footer>
   );
