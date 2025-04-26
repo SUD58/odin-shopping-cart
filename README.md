@@ -1,8 +1,12 @@
-# React + Vite
+# Odin Shopping Cart
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A basic shopping cart built as part of [The Odin Project](https://www.theodinproject.com/) curriculum.  
+Built using React, this project focuses on:
 
-Currently, two official plugins are available:
+- Routing and navigation with React Router
+- Cart state management (add/remove/update items)
+- Clean, component-based UI structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This was one of my first projects exploring React as a frontend framework, with an emphasis on learning reusable patterns and organizing stateful logic.
+
+**Note:** This is a learning project and may not include full styling or responsive design.
