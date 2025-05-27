@@ -24,6 +24,12 @@ export default function Cart() {
 
   useLayoutEffect(() => {
     const handleClickOutside = (event) => {
+      // Check if the click originated from the Navbar's cart button
+      const navbarCartButton = document.querySelector("#navbar-cart-button");
+      if (navbarCartButton && navbarCartButton.contains(event.target)) {
+        return; // Ignore clicks from the Navbar's cart button
+      }
+
       if (
         cartRef.current &&
         !cartRef.current.contains(event.target) &&
@@ -46,7 +52,7 @@ export default function Cart() {
     <>
       <div
         ref={cartRef}
-        className={`fixed right-0 top-0 flex w-80 flex-col gap-4 rounded-bl-2xl bg-zinc-50 p-4 shadow-lg transition-transform duration-300 ${
+        className={`fixed right-0 top-[4.5rem] z-50 flex w-80 flex-col gap-4 rounded-bl-2xl bg-zinc-50 p-4 shadow-lg transition-transform duration-300 ${
           isCartVisible ? "translate-x-0" : "translate-x-full"
         }`}
       >

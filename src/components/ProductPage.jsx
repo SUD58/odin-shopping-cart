@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
-import Cart from "./Cart";
 import { AddToCartButton } from "./AddToCartButton";
 
 export default function ProductPage() {
@@ -48,9 +47,6 @@ export default function ProductPage() {
 
   return (
     <>
-      <Cart />
-      {/* <Navbar></Navbar> */}
-
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
 
