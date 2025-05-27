@@ -9,7 +9,7 @@ export function Navbar() {
   const isCartEmpty = cart.length === 0;
 
   return (
-    <nav className="flex justify-between self-start bg-black p-4 text-white">
+    <nav className="sticky top-0 z-50 flex w-full justify-between self-start bg-black p-4 text-white">
       <NavLink to="/" className="text-2xl">
         Logo
       </NavLink>
@@ -18,7 +18,7 @@ export function Navbar() {
           className={({ isActive }) =>
             isActive
               ? "rounded-md bg-zinc-600 p-2"
-              : "rounded-md p-2 hover:bg-zinc-700"
+              : "rounded-md p-2 transition-colors hover:bg-zinc-700"
           }
           to="/"
         >
@@ -28,7 +28,7 @@ export function Navbar() {
           className={({ isActive }) =>
             isActive
               ? "rounded-md bg-zinc-600 p-2"
-              : "rounded-md p-2 hover:bg-zinc-700"
+              : "rounded-md p-2 transition-colors hover:bg-zinc-700"
           }
           to="/products"
         >
@@ -36,7 +36,7 @@ export function Navbar() {
         </NavLink>
         <button
           onClick={() => setIsCartVisible((prev) => !prev)}
-          className="relative flex items-center justify-center rounded-md px-4 hover:bg-zinc-700"
+          className="relative flex items-center justify-center rounded-md px-4 transition-colors hover:bg-zinc-700"
         >
           <i
             className={`${isCartEmpty ? "text-white" : "text-green-500"} fa-solid fa-shopping-cart fa-lg`}

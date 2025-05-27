@@ -29,7 +29,7 @@ export function HomePage() {
         </div>
         <Link
           to={"/products"}
-          className="self-start bg-green-500 p-4 font-bold transition-colors hover:bg-green-700"
+          className="self-start rounded-md bg-green-500 p-4 font-bold transition-colors hover:bg-green-700"
         >
           Shop Now
         </Link>

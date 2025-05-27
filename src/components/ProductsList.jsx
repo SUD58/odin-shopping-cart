@@ -69,7 +69,7 @@ function ProductsList() {
       {productsList.length === 0 ? (
         <p>No products found in this category.</p>
       ) : (
-        <div className="grid grow grid-cols-[repeat(auto-fit,minmax(350px,1fr))] gap-4 self-start">
+        <div className="grid grow grid-cols-[repeat(auto-fit,minmax(300px,1fr))] items-stretch gap-4 self-start">
           {/* Mapping over products and rendering ProductCard */}
           {productsList.map((product) => (
             <Link key={product.id} to={`/products/${product.id}`}>

@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 export default function ProductCard({ product }) {
   return (
-    <div className="flex flex-col items-center justify-center gap-2 border-2 p-4">
-      <img src={product.images[0]} alt="" className="h-24" />
+    <div className="flex h-full flex-col items-center justify-center gap-2 rounded-xl border-2 p-4 transition-shadow hover:shadow-md">
+      <img src={product.images[0]} alt="" className="h-48" />
       <h1 className="text-lg">{product.title}</h1>
       <p className="font-bold">${product.price}</p>
       <AddToCartButton product={product} />

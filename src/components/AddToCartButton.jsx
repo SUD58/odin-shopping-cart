@@ -59,7 +59,7 @@ export function AddToCartButton({ product }) {
         <button
           disabled={isOutOfStock}
           onClick={handleAddToCart}
-          className="min-w-2/5 flex items-center justify-center rounded-full bg-green-500 px-3 py-3 font-bold text-white hover:bg-green-700 active:bg-green-900 disabled:bg-zinc-400 disabled:hover:bg-zinc-400"
+          className="min-w-2/5 flex items-center justify-center rounded-full bg-green-500 px-3 py-3 font-bold text-white transition-colors hover:bg-green-700 active:bg-green-900 disabled:bg-zinc-400 disabled:hover:bg-zinc-400"
         >
           Add to Cart
         </button>
@@ -68,13 +68,13 @@ export function AddToCartButton({ product }) {
         <div className="min-w-2/5 flex items-center justify-between gap-2 rounded-full border-2 border-green-500 p-1">
           <button
             onClick={handleDecrement}
-            className="fa-solid fa-minus flex aspect-square items-center justify-center rounded-full border-2 border-green-500 p-2 text-black hover:bg-green-500 hover:text-white active:border-green-700 active:bg-green-700"
+            className="fa-solid fa-minus flex aspect-square items-center justify-center rounded-full border-2 border-green-500 p-2 text-black transition-colors hover:bg-green-500 hover:text-white active:border-green-700 active:bg-green-700"
           ></button>
           <ItemQuantityInput product={product} />
           <button
             disabled={cartQuantity >= totalInStock}
             onClick={handleIncrement}
-            className="fa-solid fa-plus flex aspect-square items-center justify-center rounded-full border-2 border-green-500 p-2 text-black hover:bg-green-500 hover:text-white active:border-green-700 active:bg-green-700 disabled:cursor-not-allowed disabled:border-zinc-400 disabled:bg-zinc-400 disabled:hover:text-black"
+            className="fa-solid fa-plus flex aspect-square items-center justify-center rounded-full border-2 border-green-500 p-2 text-black transition-colors hover:bg-green-500 hover:text-white active:border-green-700 active:bg-green-700 disabled:cursor-not-allowed disabled:border-zinc-400 disabled:bg-zinc-400 disabled:hover:text-black"
           ></button>
         </div>
       )}
